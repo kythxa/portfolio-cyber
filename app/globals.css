@@ -3,9 +3,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -18,7 +15,424 @@
     --foreground: #ededed;
   }
 }
+:root {
+  --bg: #07070a;
+  --bg-soft: #0d0e14;
+  --panel: rgba(18, 19, 28, 0.82);
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --text: #f2f1ee;
+  --muted: #a7a7b3;
+  --accent: #c43c54;
+  --accent-2: #6d5efc;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+}
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(109, 94, 252, 0.18), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(196, 60, 84, 0.15), transparent 22%),
+    linear-gradient(180deg, #050507 0%, var(--bg) 45%, #090a10 100%);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-shell {
+  position: relative;
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.noise {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.04;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.9) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.9) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: screen;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.5fr 0.9fr;
+  gap: 24px;
+  align-items: stretch;
+  padding: 32px 0 24px;
+}
+
+.hero-content,
+.hero-card,
+.panel {
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+}
+
+.hero-content {
+  border-radius: 28px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 45%);
+  pointer-events: none;
+}
+
+.hero-content h1 {
+  margin: 0;
+  font-size: clamp(3.4rem, 9vw, 7rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 0.92;
+}
+
+.hero-content h2 {
+  margin: 14px 0 0;
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  font-weight: 500;
+  color: #f4dfe3;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--accent);
+  letter-spacing: 0.28em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.lead {
+  margin: 28px 0 0;
+  max-width: 54ch;
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: var(--muted);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--panel-border);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  letter-spacing: 0.02em;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, rgba(196, 60, 84, 0.95), rgba(109, 94, 252, 0.9));
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.hero-card {
+  border-radius: 28px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-label,
+.card-index,
+.section-kicker {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--accent);
+  margin: 0;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.status-list {
+  margin: 16px 0 0;
+  padding-left: 18px;
+  color: var(--text);
+  line-height: 1.9;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.card-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  margin: 22px 0;
+}
+
+.card-text {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.85;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.section {
+  margin-top: 26px;
+}
+
+.section-title {
+  display: flex;
+  align-items: end;
+  gap: 14px;
+  margin: 0 0 14px;
+}
+
+.section-title h3 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.panel {
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+}
+
+.paragraph {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.9;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.paragraph + .paragraph {
+  margin-top: 16px;
+}
+
+.quote-box {
+  border-radius: 20px;
+  padding: 20px;
+  background: linear-gradient(180deg, rgba(109, 94, 252, 0.08), rgba(196, 60, 84, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.quote-mark {
+  margin: 0;
+  font-size: 3.8rem;
+  line-height: 0.8;
+  color: rgba(255, 255, 255, 0.18);
+}
+
+.quote {
+  margin: 6px 0 0;
+  font-size: 1.18rem;
+  line-height: 1.8;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.skill-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.skill-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 16px rgba(196, 60, 84, 0.7);
+}
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.case-card {
+  min-height: 100%;
+}
+
+.timeline {
+  display: grid;
+  gap: 14px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 18px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.timeline-year {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-weight: 700;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, rgba(196, 60, 84, 0.16), rgba(109, 94, 252, 0.12));
+}
+
+.timeline-content h4 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.timeline-content p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.contact-panel {
+  display: grid;
+  gap: 18px;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.contact-links a {
+  padding: 11px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.footer {
+  padding: 26px 0 4px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.88rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+@media (max-width: 980px) {
+  .hero,
+  .grid-two,
+  .cases-grid,
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    width: min(100% - 20px, 1120px);
+    padding-top: 16px;
+  }
+
+  .hero-content,
+  .hero-card,
+  .panel {
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .grid-two,
+  .cases-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-year {
+    margin-bottom: 4px;
+  }
+
+  .hero-content h1 {
+    letter-spacing: 0.16em;
+  }
+
+  .hero-actions,
+  .contact-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn,
+  .contact-links a {
+    width: 100%;
+  }
+}
 body {
   background: var(--background);
   color: var(--foreground);
