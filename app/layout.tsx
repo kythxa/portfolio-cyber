@@ -1,20 +1,25 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import "./globals.css";
+import { SiteHeader } from "../components/site-header";
 
 export const metadata: Metadata = {
-  title: "Kyra — Cyber-Enquêtrice",
+  title: "Kyra — Cyber-enquêtrice",
   description:
-    "Portfolio de cyber-enquêtrice. Découvrez mes compétences en cybersécurité, mes projets et mon expérience professionnelle dans le domaine de la cyber-enquête. Explorez mon parcours et contactez-moi pour toute collaboration ou opportunité professionnelle.",
+    "Portfolio sombre et cinématographique d’une cyber-enquêtrice en formation.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body>
+        <SiteHeader />
+        <div className="page-shell">{children}</div>
+      </body>
     </html>
   );
 }
