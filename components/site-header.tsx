@@ -2,17 +2,26 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const links = [
   { href: "/", label: "Accueil" },
   { href: "/about", label: "À propos" },
   { href: "/skills", label: "Compétences" },
   { href: "/projects", label: "Projets" },
+  { href: "/support", label: "Aide" },
+  { href: "/member", label: "Espace membre" },
+  { href: "/admin", label: "Admin" },
   { href: "/contact", label: "Contact" },
 ];
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
     <header className="topbar">
@@ -20,7 +29,19 @@ export function SiteHeader() {
         KYRA
       </Link>
 
-      <nav className="topnav" aria-label="Navigation principale">
+      <button
+        type="button"
+        className="burger-button"
+        aria-label="Ouvrir le menu"
+        aria-expanded={open}
+        onClick={() => setOpen((value) => !value)}
+      >
+        <span className={open ? "burger-line top open" : "burger-line top"} />
+        <span className={open ? "burger-line middle open" : "burger-line middle"} />
+        <span className={open ? "burger-line bottom open" : "burger-line bottom"} />
+      </button>
+
+      <nav className={open ? "topnav mobile-open" : "topnav"} aria-label="Navigation principale">
         {links.map((link) => {
           const active = pathname === link.href;
           return (
