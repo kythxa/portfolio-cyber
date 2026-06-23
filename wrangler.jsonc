@@ -1,21 +1,24 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "portfolio-cyber",
-  // Point d'entrée généré par `opennextjs-cloudflare build`.
-  "main": ".open-next/worker.js",
-  "compatibility_date": "2025-05-05",
-  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-  // Assets statiques bundlés par OpenNext (binding normalisé ASSETS).
-  "assets": {
-    "binding": "ASSETS",
-    "directory": ".open-next/assets"
-  },
-  "observability": {
-    "enabled": true
-  },
-  "vars": {
-    "SITE_ID": "portfolio-cyber",
-    "NEXT_PUBLIC_SITE_URL": "https://portfolio-cyber.example.com"
-  }
-  // Pas de binding DB : site vitrine sans base de données (cf. CLAUDE.md §2).
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "portfolio-cyber",
+	"main": ".open-next/worker.js",
+	"compatibility_date": "2025-05-05",
+	"compatibility_flags": [
+		"nodejs_compat",
+		"global_fetch_strictly_public"
+	],
+	"observability": {
+		"enabled": true
+	},
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"d1_databases": [
+		{
+			"binding": "portfolio_cyber_db",
+			"database_name": "portfolio_cyber_db",
+			"database_id": "99c7abd5-d1d5-45a3-a470-11ff3945425b"
+		}
+	]
 }

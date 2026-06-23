@@ -714,3 +714,267 @@ a {
     transform: translate3d(0, 0, 0);
   }
 }
+
+.burger-button {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.burger-button:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: 0 0 18px rgba(109, 94, 252, 0.12);
+}
+
+.burger-line {
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--text);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.burger-line.top.open {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger-line.middle.open {
+  opacity: 0;
+}
+
+.burger-line.bottom.open {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.form-panel,
+.auth-panel {
+  padding: 24px;
+  border-radius: 28px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.field span {
+  color: var(--muted-strong);
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  outline: none;
+  font: inherit;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: rgba(109, 94, 252, 0.35);
+  box-shadow: 0 0 0 3px rgba(109, 94, 252, 0.12);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 160px;
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.form-actions,
+.dashboard-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+.status-banner {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  line-height: 1.7;
+}
+
+.status-banner.success {
+  background: rgba(109, 94, 252, 0.12);
+  border: 1px solid rgba(109, 94, 252, 0.22);
+}
+
+.status-banner.error {
+  background: rgba(196, 60, 84, 0.12);
+  border: 1px solid rgba(196, 60, 84, 0.22);
+}
+
+.dashboard-chip,
+.ticket-card {
+  padding: 20px;
+  border-radius: 24px;
+}
+
+.dashboard-chip {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.03);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.dashboard-role,
+.ticket-status {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(109, 94, 252, 0.14);
+  border: 1px solid rgba(109, 94, 252, 0.18);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.ticket-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.ticket-card {
+  display: grid;
+  gap: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.ticket-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: start;
+}
+
+.ticket-meta {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+}
+
+.ticket-notes {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ticket-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ticket-step {
+  min-height: 50px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 0.86rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ticket-step.done {
+  border-color: rgba(109, 94, 252, 0.24);
+  background: rgba(109, 94, 252, 0.12);
+}
+
+.ticket-step.active {
+  border-color: rgba(196, 60, 84, 0.28);
+  background: rgba(196, 60, 84, 0.12);
+}
+
+.ticket-step.refused {
+  border-color: rgba(196, 60, 84, 0.32);
+  background: rgba(196, 60, 84, 0.18);
+}
+
+.admin-form {
+  display: grid;
+  gap: 12px;
+}
+
+.dashboard-toolbar {
+  justify-content: space-between;
+}
+
+@media (max-width: 920px) {
+  .burger-button {
+    display: inline-flex;
+  }
+
+  .topnav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 12px;
+  }
+
+  .topnav.mobile-open {
+    display: flex;
+  }
+
+  .topbar {
+    border-radius: 24px;
+    flex-wrap: wrap;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-head,
+  .dashboard-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

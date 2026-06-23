@@ -5,24 +5,25 @@
   "scripts": {
     "dev": "node --max-old-space-size=4096 node_modules/next/dist/bin/next dev",
     "dev:webpack": "node --max-old-space-size=4096 node_modules/next/dist/bin/next dev --webpack",
-    "dev:clean": "npm run clean && npm run dev",
-    "clean": "node -e \"const fs=require('fs');for(const d of ['.next','.open-next','.wrangler/state']){try{fs.rmSync(d,{recursive:true,force:true});console.log('rm',d)}catch{}}\"",
-    "build:next": "next build",
     "build": "opennextjs-cloudflare build",
-    "start": "next start",
-    "lint": "eslint",
+    "build:next": "next build",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "start": "next start",
+    "lint": "eslint",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts",
+    "clean": "node -e \"const fs=require('fs');for(const d of ['.next','.open-next','.wrangler']){try{fs.rmSync(d,{recursive:true,force:true})}catch{}}\""
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.19.11",
+    "bcryptjs": "^3.0.3",
+    "jose": "^6.2.3",
     "next": "16.2.7",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260619.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
