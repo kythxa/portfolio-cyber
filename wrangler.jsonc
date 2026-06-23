@@ -16,7 +16,7 @@
 	},
 	"d1_databases": [
 		{
-			"binding": "portfolio_cyber_db",
+			"binding": "DB",
 			"database_name": "portfolio_cyber_db",
 			"database_id": "99c7abd5-d1d5-45a3-a470-11ff3945425b"
 		}
