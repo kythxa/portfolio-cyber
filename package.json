@@ -6,7 +6,7 @@
     "dev": "node --max-old-space-size=4096 node_modules/next/dist/bin/next dev",
     "dev:webpack": "node --max-old-space-size=4096 node_modules/next/dist/bin/next dev --webpack",
     "build": "opennextjs-cloudflare build",
-    "build:next": "next build",
+    "build:next": "next build --webpack",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "start": "next start",
